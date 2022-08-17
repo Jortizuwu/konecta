@@ -51,7 +51,7 @@ function getSales()
 function createSale($sale)
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("INSERT INTO sale(id_product, quantity) VALUES (?, ?");
+    $sentencia = $bd->prepare("INSERT INTO sale(id_product, quantity) VALUES (?, ?)");
     return $sentencia->execute([$sale->id_product, $sale->quantity]);
 }
 

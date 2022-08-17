@@ -9,3 +9,4 @@ $id_product = $_GET["id_product"];
 include_once "./funciones.php";
 $product = getProductById($id_product);
 echo json_encode($product);
+?>
