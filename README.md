@@ -2,7 +2,7 @@
 
 ### Pre-requirements 📋
 
-To use the project it is necessary to install Node.
+To use the project it is necessary to install Node, Php, Mysql, Apache server.
 
 ## Author  ✒️
 - **Jose Ortiz**
