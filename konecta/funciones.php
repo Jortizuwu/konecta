@@ -34,7 +34,7 @@ function getProducts()
 function createProduct($product)
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("INSERT INTO product(name, reference ,price , weight, category, stock, creation_date) VALUES (?, ?, ?, ?, ?, ?, ?");
+    $sentencia = $bd->prepare("INSERT INTO product(name, reference ,price , weight, category, stock, creation_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
     return $sentencia->execute([$product->name, $product->reference, $product->price, $product->weight, $product-> category, $product->stock, $product->creation_date ]);
 }
 
@@ -51,8 +51,8 @@ function getSales()
 function createSale($sale)
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("INSERT INTO sale(id_product, quantity) VALUES (?, ?)");
-    return $sentencia->execute([$sale->id_product, $sale->quantity]);
+    $sentencia1 = $bd->prepare("INSERT INTO sale(id_product, quantity) VALUES (?, ?)");
+    return $sentencia1->execute([$sale->id_product, $sale->quantity]);
 }
 
 // setup

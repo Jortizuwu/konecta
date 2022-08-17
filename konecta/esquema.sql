@@ -20,3 +20,10 @@ CREATE TABLE `sale` (
 ALTER TABLE `sale` ADD CONSTRAINT `sale_fk0` FOREIGN KEY (`id_product`) REFERENCES `product`(`id_product`);
 
 
+-- quitar comentarios
+
+-- Realizar una consulta que permita conocer cuál es el producto que más stock tiene.
+SELECT MAX(product.stock) FROM product;
+
+-- Realizar una consulta que permita conocer cuál es el producto más vendido.
+SELECT sale.id_product, Sum(sale.quantity) AS resp FROM sale GROUP BY sale.id_product;

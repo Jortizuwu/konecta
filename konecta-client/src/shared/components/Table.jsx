@@ -1,26 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export const Table = ({ rows, columnNames }) => {
+export const Table = ({ rows = [], columnNames }) => {
+  const { pathname } = useLocation();
   const keys = rows[0] ? Object?.keys(rows[0]) : [];
 
   return (
     <div className=" p-3 rounded-md w-full">
       <div className=" flex items-center justify-between pb-6">
         <div>
-          <h2 className="text-gray-600 font-semibold">Productos</h2>
-          <span className="text-xs">Todos los productos</span>
+          <h2 className="text-gray-600 font-semibold uppercase">
+            {pathname.split("/")[1] || ""}
+          </h2>
+          <span className="text-xs">All {pathname.split("/")[1] || ""}</span>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="lg:ml-40 ml-10 space-x-8">
-            <Link
-              to="create"
-              className="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer"
-            >
-              Crear
-            </Link>
+        {!pathname.includes("sales") && (
+          <div className="flex items-center justify-between">
+            <div className="lg:ml-40 ml-10 space-x-8">
+              <Link
+                to="create"
+                className="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer"
+              >
+                Crear
+              </Link>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -40,17 +45,23 @@ export const Table = ({ rows, columnNames }) => {
               </thead>
               <tbody>
                 {rows?.map((val) => (
-                  <tr key={val?.id_product}>
+                  <tr key={val?.id}>
                     {keys?.map((name) => (
                       <td
                         className=" border-b border-gray-200 bg-white text-sm cursor-pointer"
                         key={name}
                       >
-                        <Link to={`${val?.id_product}`}>
+                        {pathname.includes("sales") ? (
                           <p className="text-gray-900 px-5 py-5 h-full whitespace-no-wrap ">
                             {val?.[name]}
                           </p>
-                        </Link>
+                        ) : (
+                          <Link to={`${val?.id}`}>
+                            <p className="text-gray-900 px-5 py-5 h-full whitespace-no-wrap ">
+                              {val?.[name]}
+                            </p>
+                          </Link>
+                        )}
                       </td>
                     ))}
                   </tr>

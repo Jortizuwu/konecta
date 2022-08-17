@@ -30,7 +30,6 @@ const initialValues = {
   weight: 0,
   category: "",
   stock: 0,
-  creation_date: new Date(),
 };
 
 export function useDefaultValues() {
@@ -64,7 +63,10 @@ export function useDefaultValues() {
   const create = useCallback(
     async (values) => {
       try {
-        await productServices.createProduct(values);
+        await productServices.createProduct({
+          ...values,
+          creation_date: new Date(),
+        });
         Swal.fire({
           icon: "success",
           title: "creado.",

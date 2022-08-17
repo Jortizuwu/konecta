@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Error404 from "../../pages/404";
 
 import Product from "../../pages/product";
 import ProductForm from "../../pages/product/components/Form";
 import Sales from "../../pages/sales";
+import SaleForm from "../../pages/sales/components/Form";
 
 import { Layout } from "../layout";
 
@@ -24,7 +26,8 @@ const App = () => {
 
             {/* sales */}
             <Route path="sales" element={<Sales />} />
-            <Route path="sales/create" element={<ProductForm />} />
+            <Route path="sales/:id" element={<SaleForm />} />
+            <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
         {/* </Suspense> */}
