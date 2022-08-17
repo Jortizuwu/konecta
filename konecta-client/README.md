@@ -37,3 +37,6 @@ or
 
 ## Author  ✒️
 - **Jose Ortiz**
+
+## preview
+<img src="assets/preview.jpg" alt="preview" align="center">
