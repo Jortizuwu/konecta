@@ -39,4 +39,4 @@ or
 - **Jose Ortiz**
 
 ## preview
-<img src="assets/preview.jpg" alt="preview" align="center">
+<img src="assests/preview.png" alt="preview" align="center">
