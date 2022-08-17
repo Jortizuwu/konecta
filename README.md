@@ -35,5 +35,5 @@ or
 
 ## Contributing  🖇️
 
-## Authors  ✒️
+## Author  ✒️
 - **Jose Ortiz**
